@@ -35,6 +35,9 @@ app.get("*", (req, res) => {
   res.send("You've tried reaching a route that doesn't exist.");
 });
 
+//Require DB Connection
+const dbConnection = require("./database/config/index")();
+
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
