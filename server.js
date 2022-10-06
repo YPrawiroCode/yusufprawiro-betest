@@ -18,11 +18,11 @@ app.use(function (req, res, next) {
 });
 
 //import router
-// const authRoute = require("./routes/authRoute");
+const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
 
 //routing API
-// app.use("/api/auth", authRoute);
+app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 
 //Routing Homepage

@@ -26,6 +26,7 @@ const createUser = async (req, res) => {
 
 const getAllUser = async (req, res) => {
   try {
+    // console.log(req.decoded);
     const userDetails = await userModel.find();
     res.status(200).json({
       statusCode: 200,

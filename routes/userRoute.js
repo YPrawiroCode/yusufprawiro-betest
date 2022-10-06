@@ -8,36 +8,17 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/userController");
-// const tokenMiddleware = require("../middlewares/tokenMiddleware");
 
-route.post(
-  "/create",
-  // tokenMiddleware.verifyToken,
-  createUser
-);
+const { auth } = require("../middleware/auth");
 
-route.get(
-  "/readall",
-  // tokenMiddleware.verifyToken,
-  getAllUser
-);
+route.post("/create", auth, createUser);
 
-route.get(
-  "/read/:id",
-  // tokenMiddleware.verifyToken,
-  readUserById
-);
+route.get("/readall", auth, getAllUser);
 
-route.put(
-  "/update/:id",
-  // tokenMiddleware.verifyToken,
-  updateUser
-);
+route.get("/read/:id", auth, readUserById);
 
-route.delete(
-  "/del/:id",
-  // tokenMiddleware.verifyToken,
-  deleteUser
-);
+route.put("/update/:id", auth, updateUser);
+
+route.delete("/del/:id", auth, deleteUser);
 
 module.exports = route;
