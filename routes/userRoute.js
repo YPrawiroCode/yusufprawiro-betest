@@ -13,7 +13,7 @@ const {
 const { auth } = require("../middleware/auth");
 const { cacheData } = require("../middleware/redisChace");
 
-route.get("/test/:species", cacheData, getTest);
+route.get("/redischace/:species", cacheData, getTest);
 
 route.post("/create", auth, createUser);
 

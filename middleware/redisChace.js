@@ -13,7 +13,7 @@ let redisClient;
 
 async function fetchApiData(species) {
   const apiResponse = await axios.get(
-    `https://www.fishwatch.gov/api/species/${species}`
+    `https://www.fishwatch.gov//api/user/read/${species}`
   );
   console.log("Request sent to the API");
   return apiResponse.data;
