@@ -37,7 +37,9 @@ Delete User
 Below user data Before and After chaced Redis
 
 before it take time 2 second
+
 ![alt text](https://github.com/yprawirocode/yusufprawiro-betest/blob/develop/pic/Before_Chached.png?raw=true)
 
 After that around 800 Milisecond
+
 ![alt text](https://github.com/yprawirocode/yusufprawiro-betest/blob/develop/pic/After_chaced.png?raw=true)
