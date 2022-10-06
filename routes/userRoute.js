@@ -11,9 +11,9 @@ const {
 } = require("../controllers/userController");
 
 const { auth } = require("../middleware/auth");
-const { cacheData } = require("../middleware/redisChace");
+// const { cacheData } = require("../middleware/redisChace");
 
-route.get("/redischace/:species", cacheData, getTest);
+// route.get("/redischace/:species", cacheData, getTest);
 
 route.post("/create", auth, createUser);
 
