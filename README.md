@@ -1,6 +1,10 @@
 # YusufPrawiro-BETest
 
-Berikut adalah screenshoot hasil hit endpoint api
+API Service Run in below url
+
+> https://ms-yusufprawiro-betest.cyclic.app/
+
+Below is result CRUD endpoint API
 
 Create User
 
