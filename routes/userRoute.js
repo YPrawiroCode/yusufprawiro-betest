@@ -17,7 +17,7 @@ const { auth } = require("../middleware/auth");
 
 route.post("/create", auth, createUser);
 
-route.get("/readall", auth, getAllUser);
+route.get("/readall", getAllUser);
 
 route.get("/read/:id", auth, readUserById);
 
