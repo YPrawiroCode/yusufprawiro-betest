@@ -13,11 +13,11 @@ const {
 const { auth } = require("../middleware/auth");
 // const { cacheData } = require("../middleware/redisChace");
 
-// route.get("/redischace/:species", cacheData, getTest);
+route.get("/redischace", getTest);
 
 route.post("/create", auth, createUser);
 
-route.get("/readall", auth, getAllUser);
+route.get("/readall", getAllUser);
 
 route.get("/read/:id", auth, readUserById);
 

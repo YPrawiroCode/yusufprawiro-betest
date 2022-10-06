@@ -1,31 +1,42 @@
 const mongoose = require("mongoose");
 const { userModel } = require("../database/models/userModel");
 
+const axios = require("axios");
+
 const jwt = require("jsonwebtoken");
 
-// const getTest = async (req, res, next) => {
-//   const species = req.params.species;
-//   let results;
+let redisClient;
 
-//   try {
-//     results = await fetchApiData(species);
-//     if (results.length === 0) {
-//       throw "API returned an empty array";
-//     }
-//     await redisClient.set(species, JSON.stringify(results), {
-//       EX: 180,
-//       NX: true,
-//     });
+async function fetchApiData() {
+  const apiResponse = await axios.get(
+    `https://ms-yusufprawiro-betest.cyclic.app/api/user/readall`,
+    {
+      headers: {
+        Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7ImlkIjoiNjMzZTdmOWY4YTNmYjcxOGNiMTI0MGJiIiwidXNlcm5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE2NjUwNjE4NjMsImV4cCI6MTY2NTE0ODI2M30.X_nlHwXdKrBN2fBM0OeyMkDJ6K50pYwgabjOalLZ2zs`,
+      },
+    }
+  );
+  console.log("Request sent to the API");
+  return apiResponse.data;
+}
 
-//     res.send({
-//       fromCache: false,
-//       data: results,
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(404).send("Data unavailable");
-//   }
-// };
+const getTest = async (req, res, next) => {
+  let results;
+
+  try {
+    results = await fetchApiData();
+    if (results.length === 0) {
+      throw "API returned an empty array";
+    }
+    res.send({
+      fromCache: false,
+      data: results,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(404).send("Data unavailable");
+  }
+};
 
 const createUser = async (req, res) => {
   try {
@@ -163,5 +174,5 @@ module.exports = {
   readUserById,
   getAllUser,
   deleteUser,
-  // getTest,
+  getTest,
 };

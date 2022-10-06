@@ -4,20 +4,15 @@ const axios = require("axios");
 let redisClient;
 
 (async () => {
-  redisClient = redis.createClient();
+  redisClient = redis.createClient({
+    host: `redis-11025.c1.ap-southeast-1-1.ec2.cloud.redislabs.com`,
+    port: 11025,
+  });
 
   redisClient.on("error", (error) => console.error(`Error : ${error}`));
 
   await redisClient.connect();
 })();
-
-async function fetchApiData(species) {
-  const apiResponse = await axios.get(
-    `https://www.fishwatch.gov//api/user/read/${species}`
-  );
-  console.log("Request sent to the API");
-  return apiResponse.data;
-}
 
 async function cacheData(req, res, next) {
   const species = req.params.species;
