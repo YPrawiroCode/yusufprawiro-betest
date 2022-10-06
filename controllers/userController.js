@@ -9,12 +9,7 @@ let redisClient;
 
 async function fetchApiData() {
   const apiResponse = await axios.get(
-    `https://ms-yusufprawiro-betest.cyclic.app/api/user/readall`,
-    {
-      headers: {
-        Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuZXdVc2VyIjp7ImlkIjoiNjMzZTdmOWY4YTNmYjcxOGNiMTI0MGJiIiwidXNlcm5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE2NjUwNjE4NjMsImV4cCI6MTY2NTE0ODI2M30.X_nlHwXdKrBN2fBM0OeyMkDJ6K50pYwgabjOalLZ2zs`,
-      },
-    }
+    `https://ms-yusufprawiro-betest.cyclic.app/api/user/readall`
   );
   console.log("Request sent to the API");
   return apiResponse.data;
