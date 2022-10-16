@@ -5,7 +5,10 @@ const jwt = require("jsonwebtoken");
 
 const createEmployee = async (req, res) => {
   try {
+    dateBefore = new Date(`${req.body.date_join}`);
+    dateAfter = dateBefore.setHours(dateBefore.getHours() + 7);
     const createdEmployee = await employeeModel.create({
+      dateJoin: dateAfter,
       ...req.body,
     });
     res.status(201).json({

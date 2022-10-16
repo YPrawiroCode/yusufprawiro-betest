@@ -5,6 +5,9 @@ const employeeSchema = new Schema({
   employeeName: {
     type: String,
   },
+  dateJoin: {
+    type: Date,
+  },
   status: {
     type: String,
   },
