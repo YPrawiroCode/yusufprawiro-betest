@@ -20,10 +20,12 @@ app.use(function (req, res, next) {
 //import router
 const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
+const employeeRoute = require("./routes/employeeRoute");
 
 //routing API
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
+app.use("/api/employee", employeeRoute);
 
 //Routing Homepage
 app.get("/", (req, res) => {

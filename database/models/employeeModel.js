@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  userName: {
+const employeeSchema = new Schema({
+  employeeName: {
     type: String,
   },
-  accountNumber: {
+  status: {
     type: String,
   },
-  emailAddress: {
+  division: {
     type: String,
   },
-  identityNumber: {
+  gender: {
+    type: String,
+  },
+  address: {
     type: String,
   },
   createdAt: {
@@ -24,6 +27,6 @@ const userSchema = new Schema({
   },
 });
 
-const userModel = mongoose.model("user", userSchema, "user");
+const employeeModel = mongoose.model("employee", employeeSchema, "employee");
 
-module.exports = { userModel, userSchema };
+module.exports = { employeeModel, employeeSchema };
